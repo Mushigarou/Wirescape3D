@@ -1,20 +1,28 @@
 #ifndef FDF_H
 #define FDF_H
 
+#include <stdio.h>
+#include <string.h>
 #include <mlx.h>
 #include <limits.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include <math.h>
+#include "../Libft/get_next_line.h"
 
-#define width 1980
-#define height 1080
+#define IN 1
+#define OUT 0
+#define win_width 1980
+#define win_height 1080
 
 typedef	struct s_data
 {
-	void	*addr;
-	void	*img;
+	int	width;
+	int	height;
+	int	**z_matrix;
+	void	*mlx_ptr;
+	void	*win_ptr;
 }	t_data;
 
 typedef	struct s_line
@@ -27,6 +35,7 @@ typedef	struct s_line
 }	t_line;
 
 void	draw_line(void *mlx_ptr, void *win_ptr);
+void    get_map(const char *map_name, t_data **data);
 
 
 #endif // fdf.h

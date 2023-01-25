@@ -14,6 +14,7 @@ void	draw_line(void *mlx_ptr, void *win_ptr)
 	pt.y1 = 390;
 	pt.x2 = 1110;
 	pt.y2 = 780;
+
 	printf("x1= %f\n", pt.x1);
 	printf("y1= %f\n", pt.y1);
 	printf("x2= %f\n", pt.x2);
