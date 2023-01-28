@@ -4,7 +4,7 @@
  * occurred
 */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 100000
@@ -21,10 +21,10 @@ char	*free_line(char	*p)
 
 	if (!p)
 		return (NULL);
-	tmp = ft_strchr(p, '\n');
+	tmp = ft_strchr_gnl(p, '\n');
 	if (!tmp)
 		return (NULL);
-	len = ft_strlen(++tmp);
+	len = ft_strlen_gnl(++tmp);
 	if (len == 0)
 		return (free(p), p = NULL, NULL);
 	rest = (char *)malloc(len + 1);
@@ -49,7 +49,7 @@ char	*_line_(char *p)
 	long	len;
 	char	*line;
 
-	line = ft_strchr(p, '\n');
+	line = ft_strchr_gnl(p, '\n');
 	if (!line)
 		return (p);
 	len = line - p;
@@ -79,7 +79,7 @@ char	*read_fd(char *p, int fd)
 	tmp = (char *)malloc(BUFFER_SIZE + 1);
 	if (!tmp)
 		return (NULL);
-	while (bytes && !ft_strchr(p, '\n'))
+	while (bytes && !ft_strchr_gnl(p, '\n'))
 	{
 		bytes = read(fd, tmp, BUFFER_SIZE);
 		if (bytes == 0)
@@ -88,7 +88,7 @@ char	*read_fd(char *p, int fd)
 			return (free(tmp), free(p), p = NULL, tmp = NULL, NULL);
 		tmp[bytes] = 0;
 		temp = p;
-		p = ft_strjoin(p, tmp);
+		p = ft_strjoin_gnl(p, tmp);
 		free(temp);
 		temp = NULL;
 	}

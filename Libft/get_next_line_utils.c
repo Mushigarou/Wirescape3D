@@ -5,9 +5,9 @@
  * 
 */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(const char *s)
 {
 	size_t	i;
 
@@ -37,7 +37,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup_gnl(const char *s1)
 {
 	char	*ptr1;
 	size_t	s1_len;
@@ -54,7 +54,7 @@ char	*ft_strdup(const char *s1)
 	return (ptr1 - s1_len);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*new_str;
 	size_t	len;
@@ -65,11 +65,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	new_str = (char *)malloc(len + 1);
 	if (!new_str)
 		return (NULL);
-	new_str = ft_strcat(s1, s2, new_str, len);
+	new_str = ft_strcat_gnl(s1, s2, new_str, len);
 	return (new_str);
 }
 
-char	*ft_strcat(char *s1, char *s2, char *str, size_t len)
+char	*ft_strcat_gnl(char *s1, char *s2, char *str, size_t len)
 {
 	int		i;
 	int		j;

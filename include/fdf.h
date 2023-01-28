@@ -9,7 +9,8 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <math.h>
-#include "../Libft/get_next_line.h"
+// #include "../Libft/get_next_line.h"
+#include "../Libft/libft.h"
 
 #define IN 1
 #define OUT 0
@@ -21,6 +22,7 @@ typedef	struct s_data
 	int	width;
 	int	height;
 	int	**z_matrix;
+	char	**color;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_data;
@@ -36,6 +38,8 @@ typedef	struct s_line
 
 void	draw_line(void *mlx_ptr, void *win_ptr);
 void    get_map(const char *map_name, t_data **data);
-
+void	free_all(int **p, t_data **data);
+int	cnt_width(char *s, char c);
+int	iscomma(char *line);
 
 #endif // fdf.h

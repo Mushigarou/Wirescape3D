@@ -67,4 +67,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
+char	*get_next_line(int fd);
+char	*ft_strchr_gnl(const char *s, int c);
+char	*ft_strdup_gnl(const char *s1);
+size_t	ft_strlen_gnl(const char *s);
+char	*ft_strcat_gnl(char *s1, char *s2, char *str, size_t len);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+
 #endif // #define LIBFT_H
