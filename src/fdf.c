@@ -1,5 +1,5 @@
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 void	draw_line(void *mlx_ptr, void *win_ptr)
 {

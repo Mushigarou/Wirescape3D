@@ -1,30 +1,6 @@
-#include "../include/fdf.h"
+#include "fdf.h"
 
-void	free_all(int **p, t_data **data)
-{
-	int	i;
 
-	i = 0;
-	if (!p)
-		return ;
-	if (p && *p)
-	{
-
-		while (p[i])
-		{
-			free(p[i]);
-			i++;
-		}
-		free(p);
-		*p = NULL;
-	}
-	if (data && *data)
-	{
-		free(*data);
-		*data = NULL;
-	}
-	return ;
-}
 
 /* Incrementing (wc) when (s - 1) is a seperator, and (*s) isn't a seperator */
 
@@ -35,6 +11,8 @@ int	cnt_width(char *s, char c)
 
 	state = OUT;
 	w_count = 0;
+	if (!s)
+		return -1;
 	while (*s != '\0')
 	{
 		if (*s == c)
@@ -65,6 +43,43 @@ int	iscomma(char *line)
 	return(0);
 }
 
+void	free_split(char **s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		free(s[i]);
+	free(s);
+}
+
+int	map_is_empty(char	*s)
+{
+	char	**line;
+
+	line = ft_split(s, ' ');
+	if (!line)
+		return (perror("Given map is empty"), 1);
+	return (free_split(line), 0);
+}
+
+// int	atoh(char *s)
+// {
+// 	int	i;
+	
+// 	i = 0;
+// 	if (!s)
+// 		return (2);
+// 	while (s[i] != '\0')
+// 	{
+		
+// 	}
+// }
+
+// void	init_struct(t_data *data, char *p)
+// {
+	
+// }
 // void	get_color(char *line, t_data data)
 // {
 // 	while (*line != '\0')

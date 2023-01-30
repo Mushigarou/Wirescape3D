@@ -17,14 +17,22 @@
 #define win_width 1980
 #define win_height 1080
 
+typedef	struct s_tile
+{
+	int	z_matrix;
+	int	x;
+	int	y;
+	int	color;
+}	t_tile;
+
 typedef	struct s_data
 {
 	int	width;
 	int	height;
-	int	**z_matrix;
-	char	**color;
+	t_tile **map;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	char	*file_name;
 }	t_data;
 
 typedef	struct s_line
@@ -33,13 +41,13 @@ typedef	struct s_line
 	float	y1;
 	float	x2;
 	float	y2;
-	
 }	t_line;
 
+int		get_map(t_data *data);
 void	draw_line(void *mlx_ptr, void *win_ptr);
-void    get_map(const char *map_name, t_data **data);
-void	free_all(int **p, t_data **data);
-int	cnt_width(char *s, char c);
-int	iscomma(char *line);
+int		init(t_data *data, char **av);
+int		cnt_width(char *s, char c);
+int		iscomma(char *line);
+int		init(t_data *data, char **av);
 
 #endif // fdf.h
