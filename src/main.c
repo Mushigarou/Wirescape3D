@@ -26,13 +26,29 @@
 		
 */
 
+// Segfault when there is a comma without a color
+// Sigfault when there is color without z
+// Sigfault when there is only a comma (OR ANY OTHER CHARACTER)
 #include "fdf.h"
 
 int	main(int ac, char **av)
 {
+	int	i = 0;
+	int	j = 0;
 	t_data	data;
 	if (ac != 2)
-		return (perror("An argument is missing <executable> <map_name> "), 1);
-	init(&data, av);	
+		return (perror("An argument is missing <executable> <map_name> "), -1);
+	init(&data, av);
+	while (i < data.height)
+	{
+		j = 0;
+		while (j < data.width)
+		{
+			printf("%3d,%5d", data.map_matrix[i][j].z, data.map_matrix[i][j].color);
+			j++;
+		}
+		i++;
+		printf("\n");
+	}
 	return(0);
 }
