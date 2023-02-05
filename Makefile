@@ -66,7 +66,7 @@ dir :
 
 clean :
 	make clean -C Libft
-	$(RM) $(OBJ) $(LIBFT_OBJ) bin obj
+	$(RM) $(OBJ) $(LIBFT_OBJ) bin obj a.out */a.out
 
 fclean : clean
 	make fclean -C Libft

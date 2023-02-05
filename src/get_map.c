@@ -3,12 +3,14 @@
 t_tile get_tile(char *s, int i, int j)
 {
 	t_tile	tile;
+	t_data	*data;
 	char	**split;
 
+	data = NULL;
 	if (!s)
 		return (tile.invalid = 1, tile);
 	split = NULL;
-	tile.color = 0x00FFFFFF;
+	tile.color = 16777215;
 	if (!(strchr((const char *)s, ',')))
 	{
 		tile.z = ft_atoi((const char *)s);
@@ -17,10 +19,14 @@ t_tile get_tile(char *s, int i, int j)
 	}
 	else
 	{
+		// should rewrite this, so when there is no color, black would be the default
+		// and z = 0
 		split = ft_split(s, ',');
 		if (!split[1])
 		{
 			perror("No color is entered");
+			free_matrix(data->map_matrix);
+			free(s);
 			exit(-1);
 		}
 		tile.z = ft_atoi((const char *)split[0]);
@@ -53,8 +59,8 @@ int get_map(t_data *data, char *map_name)
 		while (j < data->width)
 		{
 			data->map_matrix[i][j] = get_tile(split[j], i, j);
-			if (data->map_matrix[i][j].invalid == 1)
-				return (-1);
+			// if (data->map_matrix[i][j].invalid == 1)
+			// 	return (-1);
 			j++;
 		}
 		i++;

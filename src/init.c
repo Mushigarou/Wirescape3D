@@ -22,10 +22,8 @@ int	get_map_dimensions(t_data *data)
 		data->height++;
 		free(s);
 		s = get_next_line(fd);
-		// if (!s)
-		// 	return (close(fd), -1);
-		// if ((cnt_width(s, ' ')) != data->width)
-		// 	return (perror("Error occured (map width is not the same).	init.c"), free(s), close(fd), -1);
+		if (s && ((cnt_width(s, ' ')) != data->width))
+			return (perror("Error occured (map width is not the same).	init.c"), free(s), free_matrix(data->map_matrix), close(fd), -1);
 	}
 	close(fd);
 	return 0;
@@ -44,7 +42,7 @@ int	allocate_map(t_data *data)
 	{
 		data->map_matrix[i] = malloc(sizeof(t_tile) * (data->width));
 		if (!data->map_matrix[i])
-			return (perror("Malloc Failed."), -1);
+			return (perror("Malloc Failed."), free_matrix(data->map_matrix), -1);
 		i++;
 	}
 	return (0);
@@ -59,7 +57,6 @@ int	init(t_data *data, char **av)
 		exit(-1);
 	if (allocate_map(data) < 0)
 		exit (-1);
-	printf("\nhey\n");
 	// if (get_map(data, data->file_name) != 0)
 	// 	free_matrix(data->map_matrix);exit(-1);
 	get_map(data, data->file_name);

@@ -44,7 +44,7 @@ void free_matrix(t_tile **s)
 {
 	int i;
 
-	if (!s && !(*s))
+	if (!s)
 		return;
 	i = -1;
 	while (s[++i])
@@ -65,12 +65,21 @@ int	map_is_empty(char	*s)
 int is_hexa(char c)
 {
 	int i;
+	char *s;
+	char *s1;
 
-	i = -1;
-	while (++i < 16)
+	s = "0123456789abcdef";
+	s1 = "0123456789ABCDEF";
+
+	i = 0;
+
+	if (c == '\0')
+		return (-1);
+	while (i < 16)
 	{
-		if (LOW_HEX[i] == c || UPP_HEX[i] == c)
+		if ((s[i] == c) || (s1[i] == c))
 			return (i);
+		i++;
 	}
 	return (-1);
 }
@@ -87,10 +96,9 @@ int ft_strtol(char *str) // str + 2, to skip "0x"
 	{
 		indice = is_hexa(*str);
 		if (indice == -1)
-			return (perror("One of the values is not a hexa number"), -1);
+			return (res);
 		res = (res * 16) + indice;
 		str++;
 	}
 	return (res);
 }
-
