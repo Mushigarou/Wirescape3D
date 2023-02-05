@@ -8,7 +8,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra -Imlx -c
 
-SRC = fdf.c main.c get_map.c utils.c init.c
+SRC = draw_line.c main.c get_map.c utils.c init.c
 
 OBJ = $(SRC:.c=.o)
 
