@@ -8,15 +8,17 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra -Imlx -c
 
-SRC = draw_line.c main.c get_map.c utils.c init.c
+SRC = draw.c main.c get_map.c utils.c init.c
 
 OBJ = $(SRC:.c=.o)
 
 OBJ_PATH = $(addprefix obj/, $(OBJ))
 
-INCLUDE = Libft/libft.a
+ARCHIVE = Libft/libft.a
 
 HEADER = include/fdf.h
+
+INCLUDE = -I include -I Libft
 
 RM = rm -rf
 
@@ -54,11 +56,11 @@ all : $(NAME)
 
 $(NAME) : dir $(OBJ_PATH)
 	make -C Libft
-	@ $(CC) $(OBJ_PATH) $(INCLUDE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I include
+	@ $(CC) $(OBJ_PATH) $(ARCHIVE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I include
 	@ printf ${HWHT}"♠ Running Executable...  ▻"${HBLU}" [%-20s]\n"${NC} $(notdir $@)
 
 obj/%.o : src/%.c $(HEADER)
-	@ $(CC) $(CFLAGS) $< -o $@ -I include
+	@ $(CC) $(CFLAGS) $< -o $@ ${INCLUDE}
 	@ printf ${HWHT}"♠ Compiled  ▻"${HBLU}" [%-20s]\n"${NC} $(notdir $@)
 
 dir : 

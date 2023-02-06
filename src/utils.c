@@ -3,7 +3,7 @@
 // ** Hex digits in lowercase and uppercase
 #define LOW_HEX "0123456789abcdef"
 #define UPP_HEX "0123456789ABCDEF"
-// ** 
+
 #define IN 1
 #define OUT 0
 
@@ -103,7 +103,7 @@ int ft_strtol(char *str)
 
 	res = 0;
 	if (!str)
-		return (16777215);
+		return (0x00FFFFFF);
 	while (*str)
 	{
 		index = is_hexa(*str);
