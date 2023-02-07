@@ -64,7 +64,7 @@ scale = drawing_unit(SCREEN_WIDTH, SCREEN_HEIGHT, data->width, data->height);
 	x1 += SCREEN_WIDTH / 4;
 	y1 += SCREEN_HEIGHT / 5;
 
-	printf("color=%d | i=%d | j=%d | z=%d\n", data->map_matrix[j][i].color, j, i, data->map_matrix[i][j].z);
+	// printf("color=%d | i=%d | j=%d | z=%d\n", data->map_matrix[j][i].color, j, i, data->map_matrix[i][j].z);
 
 	while ((int)x != (int)x1 || (int)y != (int)y1)
 	{
