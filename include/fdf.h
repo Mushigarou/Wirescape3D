@@ -34,14 +34,14 @@ typedef	struct s_data
 	int		height;
 }	t_data;
 
-// ** Start point of drawing
-typedef	struct s_line
-{
-	double	x;
-	double	y;
-	double	x1;
-	double	y1;
-}	t_line;
+// // ** Start point of drawing
+// typedef	struct s_line
+// {
+// 	double	x;
+// 	double	y;
+// 	double	x1;
+// 	double	y1;
+// }	t_line;
 
 // ** Initiates structure
 int		init(t_data *data, char **av);
