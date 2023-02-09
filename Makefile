@@ -56,24 +56,31 @@ NC ='\033[0m'
 # AppKit provides a set of tools and interfaces for creating graphical user
 # 	interfaces, handling events, managing windows and views, and other common tasks
 
-all :art libft_archive $(NAME) fdf
+all :art libft_archive $(NAME) loop
 
 $(NAME) : dir $(OBJ_PATH)
 	@ $(CC) $(OBJ_PATH) $(ARCHIVE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I include
-# @ printf ${HYEL}"♠"${HWHT}" Executable...  ▻"${HYEL}" [%-20s]\n\n"${NC} $(notdir $@)
+	@ printf ${HYEL}"♠"${HWHT}" Executable...  ▻"${HYEL}" [%-20s]\n\n"${NC} $(notdir $@)
 
 libft_archive :
 	@ make -C Libft
 
 obj/%.o : src/%.c $(HEADER)
 	@ $(CC) $(CFLAGS) $< -o $@ ${INCLUDE}
-# $(eval FILES_COMPILED = $(shell echo "$(FILES_COMPILED) + 1" | bc))
-# @ printf ${HYEL}"♠"${HWHT}" Compiled  ▻"${HYEL}" [%-20s]"${HWHT} $(notdir $@)
-# @ echo "$(FILES_COMPILED) * 100 / ${TOTAL_FILES}" | bc | tr -d '\n'
-# @ printf "%% \r"${NC}
+	$(eval FILES_COMPILED = $(shell echo "$(FILES_COMPILED) + 1" | bc))
+	@ printf ${HYEL}"♠"${HWHT}" Compiled  ▻"${HYEL}" [%-20s]"${HWHT} $(notdir $@)
+	@ echo "$(FILES_COMPILED) * 100 / ${TOTAL_FILES}" | bc | tr -d '\n'
+	@ printf "%% \r"${NC}
 
 dir : 
 	mkdir -p bin obj
+
+loop:
+	@for i in {1..5}; do \
+		$(MAKE) fdf; \
+		clear; \
+	done
+	$(MAKE) fdf
 
 clean :
 	make clean -C Libft
@@ -105,6 +112,7 @@ art:
 	@printf "            / .' : '. \\ \n"
 	@printf "           '-'._.-._.'-' \n\n"
 	@printf ${NC}
+
 
 fdf :
 	@printf ${HYEL}"          _____                    _____                    _____\n"
