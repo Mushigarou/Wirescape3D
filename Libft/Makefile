@@ -85,11 +85,10 @@ all : $(NAME)
 $(NAME) : $(OBJ_DIR) $(OBJECTS)
 	tput el
 	ar rcs $(NAME) $(OBJECTS)
-	printf "♠"${HWHT}" Libft     ▻"${HBLU}" [%-20s] \n"${NC} "ready to be linked"
 
 $(OBJ_DIR)/%.o : %.c $(HEADERS)
 	$(eval FILES_COMPILED = $(shell echo "$(FILES_COMPILED) + 1" | bc ))
-	@ printf ${HWHT}"  Compiling ▻"${HBLU}" [%-20s] "${HWHT} $(notdir $@)
+	@ printf ${HWHT}"  Compiling ▻"${HYEL}" [%-20s] "${HWHT} $(notdir $@)
 	@ echo "$(FILES_COMPILED) * 100 / $(TOTAL_FILES)" | bc | tr -d '\n'
 	@ printf "%% \r"${NC}
 	@ $(CC) $(CFLAGS)  -c $< -I Libft -o $@

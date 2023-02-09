@@ -19,6 +19,7 @@
 typedef	struct s_tile
 {
 	int		z;
+	int		z1;
 	int		color;
 	int		invalid;
 }	t_tile;
