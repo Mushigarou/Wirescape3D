@@ -56,7 +56,7 @@ NC ='\033[0m'
 # AppKit provides a set of tools and interfaces for creating graphical user
 # 	interfaces, handling events, managing windows and views, and other common tasks
 
-all :art libft_archive $(NAME) loop
+all :art libft_archive $(NAME) fdf
 
 $(NAME) : dir $(OBJ_PATH)
 	@ $(CC) $(OBJ_PATH) $(ARCHIVE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I include

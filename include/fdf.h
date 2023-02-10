@@ -12,8 +12,8 @@
 #include "libft.h"
 
 // ** width and height of the window
-#define SCREEN_WIDTH 1980
-#define SCREEN_HEIGHT 1080
+#define SCREEN_WIDTH 1500
+#define SCREEN_HEIGHT 960
 
 // ** Accessing each tile of the map
 typedef	struct s_tile
