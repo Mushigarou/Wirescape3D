@@ -33,6 +33,8 @@ typedef	struct s_data
 	void	*win_ptr;
 	int		width;
 	int		height;
+	int		shift_x;
+	int		shift_y;
 }	t_data;
 
 // // ** Start point of drawing
