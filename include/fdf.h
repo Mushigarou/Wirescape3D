@@ -35,8 +35,14 @@ typedef	struct s_data
 	int		height;
 	int		shift_x;
 	int		shift_y;
+	int		bool;
 }	t_data;
 
+typedef struct t_points
+{
+	float	x;
+	float	y;
+} t_pt;
 // // ** Start point of drawing
 // typedef	struct s_line
 // {
@@ -58,7 +64,7 @@ int		cnt_width(char *s, char c);
 // ** Converts hexadecimal to decimal
 int		ft_strtol(char *str);
 // ** draws a line between two points
-void	draw_line(float x, float y, float x1, float y1, t_data *data);
+void	draw_line(t_pt pt, float x1, float y1, t_data *data);
 // ** Draws lines between the points of the map
 void	draw_tile(t_data *data);
 // ** Checks whether the map is empty or not
