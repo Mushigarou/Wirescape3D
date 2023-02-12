@@ -15,8 +15,6 @@
 #  define  NULL_CHAR 1
 # endif // #define NULL_CHAR
 
-
-
 typedef struct s_list
 {
 	void			*content;

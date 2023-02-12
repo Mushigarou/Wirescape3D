@@ -33,8 +33,6 @@ int	ft_atoi(const char *str)
 
 	sign = 1;
 	res = 0;
-	if (!str)
-		return (0);
 	str = ft_spaces((char *)str);
 	if (*str == '-')
 	{
