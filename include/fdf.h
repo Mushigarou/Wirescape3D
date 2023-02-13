@@ -39,6 +39,8 @@ typedef struct s_data
 	int		shift_x;
 	int		shift_y;
 	int		bool;
+	int		zoom_in;
+	int		zoom_out;
 }	t_data;
 
 typedef struct t_points
@@ -46,14 +48,6 @@ typedef struct t_points
 	float	x;
 	float	y;
 }	t_pt;
-// // ** Start point of drawing
-// typedef	struct s_line
-// {
-// 	double	x;
-// 	double	y;
-// 	double	x1;
-// 	double	y1;
-// }	t_line;
 
 // ** Initiates structure
 int		init(t_data *data, char **av);
@@ -69,7 +63,7 @@ int		ft_strtol(char *str);
 // ** draws a line between two points
 void	draw_line(t_pt pt, float x1, float y1, t_data *data);
 // ** Draws lines between the points of the map
-void	draw_tile(t_data *data);
+void	draw_map(t_data *data);
 // ** Checks whether the map is empty or not
 int		map_is_empty(char *s);
 

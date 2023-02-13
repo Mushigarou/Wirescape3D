@@ -15,13 +15,13 @@ int	get_map_dimensions(t_data *data, int fd, char *s)
 	fd = open(data->file_name, O_RDONLY);
 	if (fd < 0)
 		return (perror("Failed to open the file		init.c"),
-			free_matrix(data->map_matrix), free(data), -1);
+			free(data), -1);
 	s = get_next_line(fd);
 	if (!s)
-		return (perror("GNL_Failed.	init.c"), close(fd), -1);
+		return (perror("GNL_Failed.	init.c"), close(fd), free(data), -1);
 	data->width = cnt_width(s, ' ');
 	if (!data->width)
-		return (free(s), free_matrix(data->map_matrix), close(fd), -1);
+		return (free(s), free(data), close(fd), -1);
 	while (s)
 	{
 		data->height++;
@@ -29,8 +29,8 @@ int	get_map_dimensions(t_data *data, int fd, char *s)
 		s = get_next_line(fd);
 		if (s && ((cnt_width(s, ' ')) != data->width))
 		{
-			perror("Error occured(map width is not the same).init.c");
-			return (free_matrix(data->map_matrix), close(fd), free(s), -1);
+			perror("Error occured (map width is not the same).init.c");
+			return (free(data), close(fd), free(s), -1);
 		}
 	}
 	close(fd);
@@ -45,7 +45,7 @@ int	allocate_map(t_data *data)
 	i = 0;
 	data->map_matrix = malloc(sizeof(t_tile *) * (data->height + 1));
 	if (!data->map_matrix)
-		return (perror("Malloc Failed."), -1);
+		return (perror("Malloc Failed."), free(data), -1);
 	data->map_matrix[data->height] = NULL;
 	while (i < data->height)
 	{
