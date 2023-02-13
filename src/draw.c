@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-float	drawing_unit(int sc, int m_w, int m_h);
+int		drawing_unit(int sc, int m_w, int m_h);
 void	iso(float *x, float *y, int z, t_data *data);
 void	scale_map(t_pt *pt, float *x1, float *y1, t_data *data);
 
@@ -61,7 +61,7 @@ void	draw_line(t_pt pt, float x1, float y1, t_data *data)
 ** Initiates drawing unit (how much distance would be between x and x1)
 ** drawing unit = (Win_diagonal / 2) / map diagonal
 */
-float	drawing_unit(int sc, int m_w, int m_h)
+int	drawing_unit(int sc, int m_w, int m_h)
 {
 	float	screen_diagonal;
 	float	map_diagonal;
@@ -99,19 +99,22 @@ void	iso(float *x, float *y, int z, t_data *data)
 void	scale_map(t_pt *pt, float *x1, float *y1, t_data *data)
 {
 	static float	sc;
-	int				i;
 
 	sc = (float)drawing_unit(sc, data->width, data->height);
-	i = sc;
 	if (data->zoom_in != 0)
 	{
-		sc *= 2;
+		printf("bf : sc = %f\n", sc);
+		sc += 1;
+		printf("bf : zoom = %d\n", data->zoom_in);
+		printf("Af : sc = %f\n", sc);
 	}
-	if (data->zoom_out != 0)
+	if (data->zoom_out != 0 && sc > 2)
 	{
-		sc /= 1.01;
+		printf("bf : sc = %f\n", sc);
+		sc -= 1;
+		printf("bf : zoom = %d\n", data->zoom_in);
+		printf("Af : sc = %f\n", sc);
 	}
-	printf("%f\n", sc);
 	pt->x *= sc;
 	pt->y *= sc;
 	*x1 *= sc;
