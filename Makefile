@@ -139,6 +139,6 @@ fdf :
 #----------------------------------------------------------------------------------------------
 # Built-in Targets
 #----------------------------------------------------------------------------------------------
-.PHONY : re fclean clean dir
+.PHONY : re fclean clean dir fdf
 .SILENT : clean fclean $(NAME) dir
 .DEFAULT_GOAL : all
