@@ -5,7 +5,6 @@ void	iso(float *x, float *y, int z, t_data *data);
 void	scale_map(t_pt *pt, float *x1, float *y1, t_data *data);
 
 // ** Draws all the tiles of the map
-
 void	draw_map(t_data *data)
 {
 	t_pt	pt;
@@ -79,8 +78,12 @@ int	drawing_unit(int sc, int m_w, int m_h)
 	return ((int)draw_unit);
 }
 
+// **	Changes the view of the map from parallel to isometric projection
 void	iso(float *x, float *y, int z, t_data *data)
 {
+	float	r;
+
+	r = *x;
 	if (!data->bool)
 	{
 		if (data->width > 11 && data->width <= 20)
@@ -91,12 +94,13 @@ void	iso(float *x, float *y, int z, t_data *data)
 			z /= 12;
 		if (data->width >= 100)
 			z /= 3;
-		*x = (*x - *y) * cos(1.0890009);
-		*y = (*x + *y) - z;
+		*x = (*x - *y) * cos(30 * (M_PI / 180));
+		*y = (r + *y) * sin(90 * (M_PI / 180)) - z;
 	}
 	return ;
 }
 
+// **	Scales the map
 void	scale_map(t_pt *pt, float *x1, float *y1, t_data *data)
 {
 	static float	sc;
