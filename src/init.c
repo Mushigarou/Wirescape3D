@@ -1,14 +1,5 @@
 #include "fdf.h"
 
-// ** Initiates the point from where to start drawing
-void	center_map(t_pt *pt, float *x1, float *y1, t_data *data)
-{
-	pt->x += (SCREEN_WIDTH / 2) + data->shift_x;
-	pt->y += (SCREEN_HEIGHT / 8) + data->shift_y;
-	*x1 += (SCREEN_WIDTH / 2) + data->shift_x;
-	*y1 += (SCREEN_HEIGHT / 8) + data->shift_y;
-}
-
 // ** Gets width and height of the given map
 int	get_map_dimensions(t_data *data, int fd, char *s)
 {

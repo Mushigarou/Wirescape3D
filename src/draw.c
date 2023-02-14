@@ -50,8 +50,9 @@ void	draw_line(t_pt pt, float x1, float y1, t_data *data)
 	y_step /= fmax(fabs(x_step), fabs(y_step));
 	while (max-- >= 0)
 	{
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr,
-			(int)pt.x, (int)pt.y, data->map_matrix[j][i].color);
+		if (valid(pt, x1, y1))
+			my_mlx_put_pixel(data, (int)pt.x,
+				(int)pt.y, data->map_matrix[j][i].color);
 		pt.x += x_step;
 		pt.y += y_step;
 	}
