@@ -1,16 +1,16 @@
-# FDF Wireframe Model
+# Wirescape3D
 
-## FDF Wireframe Model
-<img width="1499" alt="Screen Shot 2023-06-05 at 8 27 01 AM" src="https://github.com/Mushigarou/FDF/assets/115739322/307b3535-3602-4f7f-b67a-93bf4d0f54f5">
+## Wireframe Model
+<img width="1499" alt="Screen Shot 2023-06-05 at 8 27 01 AM" src="https://github.com/Mushigarou/Wirescape3D/assets/115739322/307b3535-3602-4f7f-b67a-93bf4d0f54f5">
 
-FDF is a project that aims to create a wireframe model representation of a 3D landscape by connecting various points using line segments (edges). The program renders the model in an isometric projection.
+Wirescape3D is a project that aims to create a wireframe model representation of a 3D landscape by connecting various points using line segments (edges). The program renders the model in an isometric projection.
 
 ## Usage
 
-To run the FDF project, follow these steps:
+To run Wirescape3D, follow these steps:
 ```
-$> git clone https://github.com/Mushigarou/FDF.git
-$> cd fdf
+$> git clone https://github.com/Mushigarou/Wirescape3D.git
+$> cd Wirescape3D
 $> make
 $> ./bin/fdf maps/file.fdf
 ```
@@ -34,13 +34,13 @@ Make sure that the .fdf file is properly formatted to avoid unexpected behavior.
 - Translate your model. `use arrow keys`
 
 ## Images
-<img width="1499" alt="Screen Shot 2023-06-05 at 8 28 11 AM" src="https://github.com/Mushigarou/FDF/assets/115739322/17887a18-d9d2-4b0a-b2e3-baca4bc2c771">
+<img width="1499" alt="Screen Shot 2023-06-05 at 8 28 11 AM" src="https://github.com/Mushigarou/Wirescape3D/assets/115739322/17887a18-d9d2-4b0a-b2e3-baca4bc2c771">
 
-<img width="1499" alt="Screen Shot 2023-06-05 at 8 28 43 AM" src="https://github.com/Mushigarou/FDF/assets/115739322/18ac0962-ac44-4a87-b84b-1b2250764392">
+<img width="1499" alt="Screen Shot 2023-06-05 at 8 28 43 AM" src="https://github.com/Mushigarou/Wirescape3D/assets/115739322/18ac0962-ac44-4a87-b84b-1b2250764392">
 
-<img width="1499" alt="Screen Shot 2023-06-05 at 8 29 24 AM" src="https://github.com/Mushigarou/FDF/assets/115739322/6314229f-148c-4f1e-97fc-769b142142f4">
+<img width="1499" alt="Screen Shot 2023-06-05 at 8 29 24 AM" src="https://github.com/Mushigarou/Wirescape3D/assets/115739322/6314229f-148c-4f1e-97fc-769b142142f4">
 
-<img width="1499" alt="Screen Shot 2023-06-05 at 8 29 48 AM" src="https://github.com/Mushigarou/FDF/assets/115739322/5d24f0e5-c030-436c-92b1-c83da125d575">
+<img width="1499" alt="Screen Shot 2023-06-05 at 8 29 48 AM" src="https://github.com/Mushigarou/Wirescape3D/assets/115739322/5d24f0e5-c030-436c-92b1-c83da125d575">
 
 ## Contributing
 
